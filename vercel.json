@@ -1,0 +1,29 @@
+{
+  "functions": {
+    "api/vehicle.py": {
+      "runtime": "python3.9",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/vehicle.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/vehicle.py"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}
